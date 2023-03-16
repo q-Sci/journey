@@ -18,7 +18,7 @@ fn main() {
     };
 
     fn status(spaceship: Spaceship) {
-        println!("Status\n  Crew: {}\n  Stability: {}\n  engines: {}\n  o2: {}\n  Control unit: {}\n  Core reactor: {}\nStatus enda",
+        println!("Status\n  Crew: {}\n  Stability: {}\n  engines: {}\n  o2: {}\n  Control unit: {}\n  Core reactor: {}\nStatus end",
             spaceship.crew,
             spaceship.stability,
             spaceship.engines,
