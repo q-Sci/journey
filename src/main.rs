@@ -9,7 +9,7 @@ fn main() {
     }
     impl Spaceship {
         fn status(&self) {
-            println!("Status\n  Crew: {}\n  Stability: {}%\n  engines: {}\n  o2: {}%\n  Control unit: {}\n  Core reactor: {}\nStatus end",
+            println!("Status\n-----\n  Crew: {}\n  Stability: {}%\n  engines: {}\n  o2: {}%\n  Control unit: {}\n  Core reactor: {}\n-----\nStatus end",
                 self.crew,
                 self.stability,
                 self.engines,
