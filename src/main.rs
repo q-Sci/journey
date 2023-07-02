@@ -1,6 +1,8 @@
 mod spaceship_struct;
+mod type_text;
 
 use spaceship_struct::Spaceship;
+use type_text::type_text;
 
 fn main() {
     let mut spaceship = Spaceship {

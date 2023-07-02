@@ -1,3 +1,5 @@
+use crate::type_text;
+
 pub struct Spaceship {
     pub crew: i32,
     pub stability: i32,
@@ -8,14 +10,14 @@ pub struct Spaceship {
 }
 impl Spaceship {
     pub fn status(&self) {
-        println!("Status\n-----\n  Crew: {}\n  Stability: {}%\n  engines: {}\n  o2: {}%\n  Control unit: {}\n  Core reactor: {}\n-----\nStatus end",
+        type_text(&format!("<Status>\n-----\n  Crew: {}\n  Stability: {}%\n  Engines: {}\n  O2: {}%\n  Control unit: {}\n  Core reactor: {}\n-----\n<Status end>",
             self.crew,
             self.stability,
             self.engines,
             self.o2,
             self.control_unit,
             self.core_reactor
-        );
+        ));
     }
     pub fn modify(&mut self, component: &str, value: i32) {
         match component {
@@ -27,14 +29,14 @@ impl Spaceship {
         };
 
         if component == "stability" || component == "oxygen" {
-            println!("Status update: {} reduced by {}%", component, value);
+            type_text(&format!("Status update: {} reduced by {}%", component, value));
         } else if component == "crew" {
-            println!("Status update: {} crew members died", value);
+            type_text(&format!("Status update: {} crew members died", value));
         } else {
             match value {
-                1 => println!("Status update: 1 engine failed"),
-                4 => println!("Status update: all engines failed"),
-                _ => println!("Status update: {} engines failed", value),
+                1 => type_text(&format!("Status update: 1 engine failed")),
+                4 => type_text(&format!("Status update: all engines failed")),
+                _ => type_text(&format!("Status update: {} engines failed", value)),
             }
         }
     }
@@ -45,6 +47,6 @@ impl Spaceship {
             "core reactor" => self.core_reactor = false,
             &_ => unimplemented!(),
         }
-        println!("Status update: {} engine failed", component);
+        type_text(&format!("Status update: {} engine failed", component));
     }
 }
