@@ -1,3 +1,5 @@
+use colored::Colorize;
+
 use crate::type_text;
 
 pub struct Spaceship {
@@ -10,13 +12,15 @@ pub struct Spaceship {
 }
 impl Spaceship {
     pub fn status(&self) {
-        type_text(&format!("<Status>\n-----\n  Crew: {}\n  Stability: {}%\n  Engines: {}\n  O2: {}%\n  Control unit: {}\n  Core reactor: {}\n-----\n<Status end>",
+        type_text(&format!("\n<{}>\n-----\n  Crew: {}\n  Stability: {}%\n  Engines: {}\n  O2: {}%\n  Control unit: {}\n  Core reactor: {}\n-----\n<{}>\n",
+            "Status".bold().cyan(),
             self.crew,
             self.stability,
             self.engines,
             self.o2,
             self.control_unit,
-            self.core_reactor
+            self.core_reactor,
+            "Status end".bold().cyan()
         ));
     }
     pub fn modify(&mut self, component: &str, value: i32) {
